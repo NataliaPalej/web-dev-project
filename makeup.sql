@@ -1,22 +1,53 @@
-CREATE DATABASE IF NOT EXISTS makeup;
-USE makeup;
+-- MySQL dump 10.13  Distrib 5.5.15, for osx10.6 (i386)
+--
+-- Host: localhost    Database: makeup
+-- ------------------------------------------------------
+-- Server version	5.5.15
 
-DROP TABLE IF EXISTS makeupInventory;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-CREATE TABLE makeupInventory (
-makeupID int(11) NOT NULL AUTO_INCREMENT,
-productName VARCHAR(255) DEFAULT NULL,
-productCategory ENUM("face", "eyes", "lips", "brows") DEFAULT NULL,
-productDescription VARCHAR(255) DEFAULT NULL,
-company VARCHAR(255) DEFAULT NULL,
-price DOUBLE,
-stock INT,
-onSale ENUM("yes", "no"),
-discontinued ENUM("yes", "no"),
-PRIMARY KEY (makeupID)
-);
+--
+-- Table structure for table `makeupInventory`
+--
 
-INSERT INTO makeupInventory VALUES 
+CREATE DATABASE IF NOT EXISTS `makeup`;
+USE `makeup`;
+
+DROP TABLE IF EXISTS `makeupInventory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+
+CREATE TABLE `makeupInventory` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`productName` VARCHAR(255) DEFAULT NULL,
+	`productCategory` ENUM("face", "eyes", "lips", "brows") DEFAULT NULL,
+	`productDescription` VARCHAR(255) DEFAULT NULL,
+	`company` VARCHAR(255) DEFAULT NULL,
+	`price` DOUBLE,
+	`stock` INT,
+	`onSale` ENUM("yes", "no"),
+	`discontinued` ENUM("yes", "no"),
+	PRIMARY KEY (makeupID)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wine`
+--
+
+LOCK TABLES `makeupInventory` WRITE;
+/*!40000 ALTER TABLE `makeupInventory` DISABLE KEYS */;
+
+INSERT INTO `makeupInventory` VALUES 
 (null, "NATURAL RADIANT LONGWEAR FOUNDATION", "face", "Light-as-air yet full luminous wear, perfectly balanced, buildable, breathable and fade-resistant formula offers medium-to-full coverage its perfect for normal, combination and oily skin types.", "NARS", 48.00, 150, "no", "no"),
 (null,"SOFT MATTE COMPLETE CONCEALER", "face", "Concealing dark spots, under-eye circles, redness and breakouts to smoothing out uneven texture.", "NARS", 31.00, 80, "no", "no"),
 (null,"LIQUID BLUSH", "face", "Buildable, blendable and incredibly long-lasting, just one pump of this luscious liquid delivers perfect, uplifting colour and a gorgeous glow.", "NARS", 33.00, 50, "no", "no"),
@@ -35,27 +66,36 @@ INSERT INTO makeupInventory VALUES
 (null,"JAWBREAKER PALETTE", "eyes", "A twenty-four-colour pressed pigment palette. This palette is next level rainbow. ", "Jeffree Star", 66.50, 100, "no", "no"),
 (null, "PRICKED PALETTE", "eyes", "An eighteen-colour eyeshadow palette. ", "Jeffree Star", 62.95, 80, "no", "no");
 
-SELECT * from makeupInventory;
+/*!40000 ALTER TABLE `wine` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-CREATE TABLE users (
-userID int(11) NOT NULL AUTO_INCREMENT,
-firstName VARCHAR(255) NOT NULL,
-lastName VARCHAR(255) NOT NULL,
-address VARCHAR(255) NOT NULL,
-phoneNo VARCHAR(255) DEFAULT NULL,
-email VARCHAR(255) DEFAULT NULL,
-PRIMARY KEY (userID)
+-- Dump completed on 2011-12-01  9:22:24
+
+CREATE TABLE `users` (
+	`userID` int(11) NOT NULL AUTO_INCREMENT,
+	`username` VARCHAR(255) NOT NULL,
+	`password` VARCHAR(255) NOT NULL,
+	`firstName` VARCHAR(255) NOT NULL,
+	`lastName` VARCHAR(255) NOT NULL,
+	`address` VARCHAR(255) NOT NULL,
+	`phoneNo` VARCHAR(255) DEFAULT NULL,
+	`email` VARCHAR(255) DEFAULT NULL,
+	PRIMARY KEY (userID)
 );
 
-INSERT INTO users VALUES ("", "", "", "", "");
-INSERT INTO users VALUES ("", "", "", "", "");
-INSERT INTO users VALUES ("", "", "", "", "");
-INSERT INTO users VALUES ("", "", "", "", "");
-INSERT INTO users VALUES ("", "", "", "", "");
-INSERT INTO users VALUES ("", "", "", "", "");
-INSERT INTO users VALUES ("", "", "", "", "");
-INSERT INTO users VALUES ("", "", "", "", "");
-INSERT INTO users VALUES ("", "", "", "", "");
-INSERT INTO users VALUES ("", "", "", "", "");
-INSERT INTO users VALUES ("", "", "", "", "");
+INSERT INTO `users` VALUES 
+(null, "Lilly", "admin", "Lilly", "Lola", "Athlone", "089 897 3456", "LillyLola@gmail.com"), 
+(null, "Adrian", "admin2", "Adrian", "Black", "Athlone", "089 899 0098", "AdrianBlack@gmail.com"), 
+(null, "Kochatek", "admin3", "Kochatek", "Skarb", "Dublin", "087 111 2366", "KochatekSkarb@gmail.com"), 
+(null, "Lidia", "admin4", "Lidia", "Dadal", "Galway", "087 677 9899", "LidiaDadal@gmail.com"), 
+(null, "Kasia", "admin5", "Kasia", "Blue", "Tullamore", "086 112 3343", "KasiaBlue@gmail.com"), 
+(null, "Dominik", "admin6", "Dominik", "Blue", "Tullamore", "086 555 7878", "DominikBlue@gmail.com");
