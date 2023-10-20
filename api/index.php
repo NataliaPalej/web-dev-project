@@ -6,9 +6,11 @@ use Slim\Slim;
 \Slim\Slim::registerAutoloader();
 
 $app = new Slim();
-$app->get('/products', 'getProducts');
-$app->get('/products/:id',  'getProduct');
-$app->get('/products/search/:query', 'findByID');
+$app->get('/makeup', 'getProducts');
+$app->get('/makeup/:id',  'getProduct');
+$app->get('/makeup/search/byName/:query', 'findByName');
+$app->get('/makeup/search/byCategory/:query', 'findByCategory');
+$app->get('/makeup/search/byCompany/:query', 'findByCompany');
 
 // Update, delete, post methods route needs to be added 
 //$app->post('/products', 'addProduct');
