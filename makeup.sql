@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `makeupInventory`;
 /*!40101 SET character_set_client = utf8 */;
 
 CREATE TABLE `makeupInventory` (
-	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`productID` int(11) NOT NULL AUTO_INCREMENT,
 	`productName` VARCHAR(255) DEFAULT NULL,
 	`productCategory` ENUM("face", "eyes", "lips", "brows") DEFAULT NULL,
 	`productDescription` VARCHAR(255) DEFAULT NULL,
