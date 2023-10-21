@@ -16,17 +16,17 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `makeupInventory`
+-- Table structure for table `products`
 --
 
 CREATE DATABASE IF NOT EXISTS `makeup`;
 USE `makeup`;
 
-DROP TABLE IF EXISTS `makeupInventory`;
+DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 
-CREATE TABLE `makeupInventory` (
+CREATE TABLE `products` (
 	`productID` int(11) NOT NULL AUTO_INCREMENT,
 	`productName` VARCHAR(255) DEFAULT NULL,
 	`productCategory` ENUM("face", "eyes", "lips", "brows") DEFAULT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE `makeupInventory` (
 	`stock` INT,
 	`onSale` ENUM("yes", "no"),
 	`discontinued` ENUM("yes", "no"),
-	PRIMARY KEY (makeupID)
+	PRIMARY KEY (productID)
 ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -44,10 +44,10 @@ CREATE TABLE `makeupInventory` (
 -- Dumping data for table `wine`
 --
 
-LOCK TABLES `makeupInventory` WRITE;
-/*!40000 ALTER TABLE `makeupInventory` DISABLE KEYS */;
+LOCK TABLES `products` WRITE;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
 
-INSERT INTO `makeupInventory` VALUES 
+INSERT INTO `products` VALUES 
 (null, "NATURAL RADIANT LONGWEAR FOUNDATION", "face", "Light-as-air yet full luminous wear, perfectly balanced, buildable, breathable and fade-resistant formula offers medium-to-full coverage its perfect for normal, combination and oily skin types.", "NARS", 48.00, 150, "no", "no"),
 (null,"SOFT MATTE COMPLETE CONCEALER", "face", "Concealing dark spots, under-eye circles, redness and breakouts to smoothing out uneven texture.", "NARS", 31.00, 80, "no", "no"),
 (null,"LIQUID BLUSH", "face", "Buildable, blendable and incredibly long-lasting, just one pump of this luscious liquid delivers perfect, uplifting colour and a gorgeous glow.", "NARS", 33.00, 50, "no", "no"),
