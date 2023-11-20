@@ -1,4 +1,4 @@
 /WK2/nbproject/private/
 
 # Ignore MP4s
-.mp4
+*.mp4
